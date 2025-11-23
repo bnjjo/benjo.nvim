@@ -775,6 +775,9 @@ require('lazy').setup({
         styles = {
           transparency = true,
         },
+        highlight_groups = {
+          Visual = { bg = '#ff00ff' },
+        },
       }
       -- Load the colorscheme here.
       vim.cmd.colorscheme 'rose-pine'
