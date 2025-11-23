@@ -375,11 +375,12 @@ require('lazy').setup({
       end)
     end,
   },
-  -- testing plugin
+  -- harpoon-hop
   {
-    dir = '~/Code/lua/harpoon-hop.nvim',
-    name = 'harpoon-hop',
-    dependencies = { 'ThePrimeagen/harpoon' },
+    'bsukalo/harpoon-hop.nvim',
+    dependencies = {
+      'ThePrimeagen/harpoon',
+    },
     config = function()
       require('harpoon-hop').setup()
     end,
