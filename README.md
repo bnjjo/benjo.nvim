@@ -12,7 +12,7 @@ This is a fork of [nvim.lua/kickstart.nvim](https://github.com/nvim-lua/kickstar
 ### Usage
 
 ```sh
-git clone https://github.com/bsukalo/benjo.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+git clone https://github.com/bnjjo/benjo.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 ```
 
 ### Required
