@@ -2,4 +2,12 @@
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
-return {}
+return {
+  {
+    dir = '~/Code/lua/harpoon-hop.nvim/',
+    name = 'harpoon-hop',
+    config = function()
+      require('harpoon-hop').setup()
+    end,
+  },
+}

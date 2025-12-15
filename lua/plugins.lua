@@ -376,15 +376,15 @@ require('lazy').setup({
     end,
   },
   -- harpoon-hop
-  {
-    'bsukalo/harpoon-hop.nvim',
-    dependencies = {
-      'ThePrimeagen/harpoon',
-    },
-    config = function()
-      require('harpoon-hop').setup()
-    end,
-  },
+  -- {
+  --   'bsukalo/harpoon-hop.nvim',
+  --   dependencies = {
+  --     'ThePrimeagen/harpoon',
+  --   },
+  --   config = function()
+  --     require('harpoon-hop').setup()
+  --   end,
+  -- },
 
   -- LSP Plugins
   {
@@ -726,6 +726,8 @@ require('lazy').setup({
       keymap = {
         preset = 'default',
         ['<CR>'] = { 'select_and_accept', 'fallback' },
+        ['<Tab>'] = { 'select_next', 'fallback' },
+        ['<S-Tab>'] = { 'select_prev', 'fallback' },
       },
 
       appearance = {
@@ -773,11 +775,12 @@ require('lazy').setup({
     config = function()
       ---@diagnostic disable-next-line: missing-fields
       require('rose-pine').setup {
-        styles = {
-          transparency = true,
-        },
+        -- variant = 'moon',
+        -- styles = {
+        --   transparency = true,
+        -- },
         highlight_groups = {
-          Visual = { bg = '#ff00ff' },
+          Visual = { bg = 'gold' },
         },
       }
       -- Load the colorscheme here.
@@ -881,7 +884,7 @@ require('lazy').setup({
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
