@@ -61,3 +61,35 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.hl.on_yank()
   end,
 })
+
+-- Cycle to next split, run last command, cycle back
+vim.api.nvim_create_user_command('C', function()
+  vim.cmd 'wincmd w' -- Cycle to next window
+  vim.fn.feedkeys('i', 'n')
+  vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Up><CR>', true, false, true), 'n')
+  vim.defer_fn(function()
+    vim.cmd 'wincmd p' -- Go back to previous window
+  end, 100) -- Wait 100ms for command to execute
+end, {})
+
+-- Cycle to next split, run last command, stay there
+vim.api.nvim_create_user_command('CC', function()
+  vim.cmd 'wincmd w' -- Cycle to next window
+  vim.fn.feedkeys('i', 'n')
+  vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Up><CR>', true, false, true), 'n')
+end, {})
+
+vim.api.nvim_create_user_command('T', function()
+  vim.cmd 'vsplit' -- Create new vertical split (cursor goes to new right split)
+  vim.cmd '30wincmd >' -- Widen current (right) split by 30
+  vim.cmd 'wincmd h' -- Move to left split
+  vim.cmd 'terminal' -- Open terminal in left split
+  vim.cmd 'startinsert' -- Enter insert mode in terminal
+end, {})
+
+vim.keymap.set('n', '<leader>R', function()
+  package.loaded['keymaps'] = nil
+  package.loaded['plugins'] = nil
+  vim.cmd 'source ~/.config/nvim/init.lua'
+  print 'Config reloaded.'
+end, { desc = 'Reload config' })
