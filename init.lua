@@ -29,6 +29,8 @@ vim.opt.relativenumber = true
 
 -- enable mouse mode
 vim.o.mouse = 'a'
+-- scroll 1 line at a time
+vim.opt.mousescroll = 'ver:1,hor:1'
 
 -- Don't show the mode, since it's already in the status line
 vim.o.showmode = false
