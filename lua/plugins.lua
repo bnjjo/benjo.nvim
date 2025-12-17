@@ -1,33 +1,6 @@
 -- NOTE: ========= PLUGINS ==========
 require('lazy').setup({
   'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
-  -- nvim-tree
-  {
-    'nvim-tree/nvim-tree.lua',
-    dependencies = { 'nvim-tree/nvim-web-devicons' }, -- optional, for icons
-    config = function()
-      -- Empty setup using defaults
-      require('nvim-tree').setup {
-        view = {
-          side = 'right',
-        },
-        diagnostics = {
-          enable = true, --  turn on diagnostic icons
-          show_on_dirs = true, -- show diagnostics on folders
-          debounce_delay = 50,
-          icons = {
-            hint = '',
-            info = '',
-            warning = '',
-            error = '',
-          },
-        },
-      }
-    end,
-    keys = {
-      { '<Leader>n', ':NvimTreeToggle<CR>', desc = 'Toggle NvimTree' },
-    },
-  },
   -- lazygit.nvim
   {
     'kdheepak/lazygit.nvim',
@@ -376,15 +349,15 @@ require('lazy').setup({
     end,
   },
   -- harpoon-hop
-  -- {
-  --   'bsukalo/harpoon-hop.nvim',
-  --   dependencies = {
-  --     'ThePrimeagen/harpoon',
-  --   },
-  --   config = function()
-  --     require('harpoon-hop').setup()
-  --   end,
-  -- },
+  {
+    'bsukalo/harpoon-hop.nvim',
+    dependencies = {
+      'ThePrimeagen/harpoon',
+    },
+    config = function()
+      require('harpoon-hop').setup()
+    end,
+  },
 
   -- LSP Plugins
   {
@@ -884,7 +857,7 @@ require('lazy').setup({
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  { import = 'custom.plugins' },
+  -- { import = 'custom.plugins' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
