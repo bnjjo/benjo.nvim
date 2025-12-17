@@ -45,11 +45,6 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- <Leader>+n -> toggle nvim tree
-vim.keymap.set('n', '<Leader>n', function()
-  require('nvim-tree.api').tree.toggle()
-end, { noremap = true, silent = true })
-
 -- <Leader>+g -> toggle lazygit
 vim.keymap.set('n', '<leader>g', '<cmd>LazyGit<cr>', { desc = 'Open LazyGit' })
 
@@ -79,12 +74,14 @@ vim.api.nvim_create_user_command('CC', function()
   vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Up><CR>', true, false, true), 'n')
 end, {})
 
+-- Create a new vertical split with a terminal and resize
 vim.api.nvim_create_user_command('T', function()
-  vim.cmd 'vsplit' -- Create new vertical split (cursor goes to new right split)
-  vim.cmd '30wincmd >' -- Widen current (right) split by 30
-  vim.cmd 'wincmd h' -- Move to left split
-  vim.cmd 'terminal' -- Open terminal in left split
-  vim.cmd 'startinsert' -- Enter insert mode in terminal
+  vim.cmd 'vsplit'
+  vim.cmd '30wincmd >'
+  vim.cmd 'wincmd h'
+  vim.cmd('lcd ' .. vim.fn.expand '%:p:h') -- cd to current file's directory
+  vim.cmd 'terminal'
+  vim.cmd 'startinsert'
 end, {})
 
 vim.keymap.set('n', '<leader>R', function()
