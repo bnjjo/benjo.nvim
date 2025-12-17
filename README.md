@@ -1,13 +1,18 @@
 # benjo.nvim
 
-This is a fork of [nvim.lua/kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) optimized for my workflow, which mainly encompasses React, TypeScript, and CSS.
+This is a fork of [nvim.lua/kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) optimized for my workflow.
 
 ### Custom binds
 
 `<Leader> + d` --> expand diagnostic message that the cursor is currently hovering over<br>
 `<Leader> + D` --> show all diagnostic messages<br>
 `<Leader> + g` --> launch Lazygit<br>
-`<Leader> + n` --> toggle nvim-tree
+`<Leader> + 1-9` --> quick switch between marked projects
+
+### Custom commands
+`:T` --> initialize a horizontal split with a terminal window on the left and automatically narrow it<br>
+`:C` --> switch foucs to next split (assumed to be a terminal), run last command, then switch back (used for quick compilation and testing)<br>
+`:CC` --> same as above except stay in terminal split and enter insert mode (useful for when terminal requests input)<br>
 
 ### Usage
 
